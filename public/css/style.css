@@ -1,0 +1,468 @@
+/* ================= GLOBAL ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+
+    font-family:Arial, sans-serif;
+}
+
+
+
+/* ================= HOME SCREEN ================= */
+
+
+.game{
+
+    width:100vw;
+    height:100vh;
+
+    background-image:url("/BG.png");
+
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+
+    position:relative;
+
+}
+
+
+
+/* START BUTTON */
+
+
+.start-btn{
+
+    width:450px;
+
+    position:absolute;
+
+    top:45%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    cursor:pointer;
+
+    image-rendering:pixelated;
+
+
+    animation:startFloat 2s ease-in-out infinite;
+
+
+    filter:
+    drop-shadow(0 12px 0 #222)
+    drop-shadow(0 0 25px cyan);
+
+}
+
+
+
+@keyframes startFloat{
+
+0%{
+    transform:translate(-50%,-50%);
+}
+
+
+50%{
+    transform:translate(-50%,-60%);
+}
+
+
+100%{
+    transform:translate(-50%,-50%);
+}
+
+}
+
+
+
+
+
+/* ================= DASHBOARD SCREEN ================= */
+
+
+.dashboard{
+
+    width:100vw;
+    height:100vh;
+
+
+    background-image:url("/DASHBOARD.png");
+
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    background-position:center;
+
+
+    position:relative;
+
+    overflow:hidden;
+
+    image-rendering:pixelated;
+
+}
+
+
+
+/* TITLE */
+
+
+h1{
+
+    padding-top:25px;
+
+    text-align:center;
+
+    font-size:45px;
+
+    color:white;
+
+    letter-spacing:5px;
+
+
+    text-shadow:
+    5px 5px black,
+    0 0 25px cyan;
+
+}
+
+
+
+
+/* STATUS */
+
+
+.status{
+
+    margin-top:40px;
+
+    text-align:center;
+
+    font-size:28px;
+
+    color:white;
+
+}
+
+
+
+
+
+
+/* ================= BUTTON GRID ================= */
+
+.button-grid{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,25%);
+    grid-template-rows:repeat(6,1fr);
+
+}
+
+
+/* left pipe */
+.map-box{
+
+    grid-column:1;
+    grid-row:5;
+
+    display:flex;
+    justify-content:center;
+    align-items:end;
+
+}
+
+
+/* second pipe */
+.battery-box{
+
+    grid-column:2;
+    grid-row:5;
+
+    justify-content:center;
+    align-items:end;
+
+}
+
+
+/* warning pipe */
+.gps-box{
+
+    grid-column:3;
+    grid-row:5;
+
+    display:flex;
+    justify-content:center;
+    align-items:end;
+
+}
+
+
+/* phone pipe */
+.contact-box{
+
+    grid-column:4;
+    grid-row:5;
+
+    display:flex;
+    justify-content:center;
+    align-items:end;
+
+}
+
+
+
+/* button look */
+button{
+
+    width:150px;
+    height:50px;
+
+    border-radius:25px;
+
+    border:none;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    background:white;
+
+}
+
+/* ================= BUTTON STYLE ================= */
+
+
+button{
+
+    width:150px;
+    height:50px;
+
+
+
+
+
+    font-size:18px;
+
+    cursor:pointer;
+
+
+
+
+    box-shadow:
+
+    0 8px 0 #222,
+
+    0 0 20px cyan;
+
+
+    animation:buttonFloat 2s infinite alternate;
+
+
+    transition:.25s;
+
+}
+
+
+
+
+/* HOVER */
+
+
+button:hover{
+
+    transform:scale(1.15) rotate(-5deg);
+
+
+    box-shadow:
+
+    0 12px 0 black,
+
+    0 0 35px yellow;
+
+}
+
+
+
+
+/* CLICK */
+
+
+button:active{
+
+    transform:scale(.9)
+    translateY(10px);
+
+}
+
+
+
+
+
+/* FLOATING EFFECT */
+
+
+@keyframes buttonFloat{
+
+
+from{
+
+    transform:translateY(0);
+
+}
+
+
+to{
+
+    transform:translateY(-15px);
+
+}
+
+
+}
+/* ================= GAME BUTTON MOVEMENT ================= */
+
+
+/* all dashboard option images/buttons */
+.button-grid img{
+
+    animation:
+    pipeJump 2s ease-in-out infinite,
+    glowPulse 1.5s infinite alternate;
+
+    cursor:pointer;
+
+    image-rendering:pixelated;
+
+    transition:.3s;
+
+}
+
+
+/* each button delay (Mario style) */
+
+.map-box img{
+    animation-delay:0s;
+}
+
+.battery-box img{
+    animation-delay:.3s;
+}
+
+.gps-box img{
+    animation-delay:.6s;
+}
+
+.contact-box img{
+    animation-delay:.9s;
+}
+
+
+
+/* FLOAT UP DOWN */
+
+@keyframes pipeJump{
+
+
+0%{
+
+    transform:translateY(0);
+
+}
+
+
+50%{
+
+    transform:translateY(-25px);
+
+}
+
+
+100%{
+
+    transform:translateY(0);
+
+}
+
+}
+
+
+
+/* LIGHT EFFECT */
+
+@keyframes glowPulse{
+
+
+from{
+
+    filter:
+    drop-shadow(0 0 5px cyan);
+
+}
+
+
+to{
+
+    filter:
+    drop-shadow(0 0 25px yellow);
+
+}
+
+}
+
+
+
+
+
+/* HOVER EFFECT */
+
+.button-grid img:hover{
+
+
+    transform:
+    scale(1.2)
+    rotate(-5deg);
+
+
+    filter:
+    drop-shadow(0 0 35px red);
+
+}
+
+
+
+
+
+
+
+/* CLICK EFFECT */
+
+.button-grid img:active{
+
+
+    transform:
+    scale(.85)
+    translateY(20px);
+
+
+}
